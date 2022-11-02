@@ -1,0 +1,80 @@
+.navbar {
+    width: 100%;
+    height: 8% ;
+    background-color: black;
+    color:white ;
+    font-size: 14px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar.scrolled{
+    background-color: black;
+    transition  : 1s;
+}
+
+.container{
+    position: relative;
+    padding: 0px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+img{
+    height: 25px;
+    margin-right: 40px;
+}
+
+span {
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+.left{
+    display: flex;
+    align-items: center;
+}
+
+.right {
+    padding:50px ;
+    display: flex;
+    align-items: center;
+}
+    .icon {
+      margin: 0px 15px;
+      cursor: pointer;
+    }
+
+    .right img {
+      width: 30px;
+      height: 30px;
+      border-radius: 5px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .options {
+    display: none;
+    background-color: var(--main-color);
+    border-radius: 5px;
+    }
+    .icon:hover{
+        
+        display: flex;
+        flex-direction: column;
+        /* position: absolute; */
+    }
+
+    .profile span {
+    padding: 10px;
+    cursor: pointer;
+    }
+
+    
+    
