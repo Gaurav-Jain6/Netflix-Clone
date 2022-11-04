@@ -10,14 +10,14 @@ const Home = () => {
         <div className="home">
             <Navbar></Navbar>
             <Featured></Featured>
-            <List></List>
-            <List></List>
-            <List></List>
-            <List></List>
-            <List></List>
-            <List></List>
-            <List></List>
-            <List></List>
+            <List type="Horror"></List>
+            <List type="Crime"></List>
+            <List type="Documentary"></List>
+            <List type="Action"></List>
+            <List type="Family"></List>
+            <List type="Fantasy"></List>
+            <List type="History"></List>
+            <List type="Thriller"></List>
         </div>
         
      );

@@ -22,7 +22,7 @@
     color: white;
     position: absolute;
     z-index: 99;
-    top: 0;
+    top: 0; 
     bottom: 0;
     margin: auto;
     cursor: pointer;
