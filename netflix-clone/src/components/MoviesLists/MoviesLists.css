@@ -7,48 +7,89 @@
     background-color: black;
     /* cursor: pointer;
     color: white; */
-    color:white
+    color:white ;
 }
 
 .movieimg{
     height: 100%;
     width: 100%;
-    /* z-index: 5; */
-    /* object-fit:cover ; */
 }
 
-.movielist:hover video{
-    /* width: 325px;
-    height: 400px; */
-    height:260px ;
-    width:225px ;
-    position:absolute ;
-    top : -195px ;
-    /* -webkit-box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.07); */
-    /* box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.09); */
-    border-radius: 5px;
-}
 
 .movielist:hover .movieimg{
-    display: none;
-}
-/* height:170px ;
-width:227px ;  */
-/* .movieimg:hover{
-    height:50% ;
-    width:100% ;  
-}
-       */
-       
+    animation: fadeinout 1.5s ease-out backwards;
 
+}
+
+@keyframes fadeinout {
+    0% { opacity: 1; }
+  }
+  @keyframes fadeinout {
+    100% { opacity: 0; }
+}
+
+.movielist:hover .movieHover{
+    background-color: black;
+    position:absolute ;
+    top : -164px ;
+    cursor: pointer;
+    height: 360px;
+    border-radius: 5px ;
+    width:300px ;
+    /* background-color: orangered; */
+    /* display: none; */
+    transition: 2s ;
+    /* border-radius: 20px ; */
+    /* transition: width 2s, height 2s, background-color 2s, transform 2s; */
+    /* animation: fadein 2s; */
+    animation:pop-in 1s;
+    box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes pop-in {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+    }
+
+@keyframes pop{
+    from  {transform: scale(1);}
+    to  {transform: scale(2);}
+  }
+@keyframes fadein {
+    from { opacity: 0}
+    to   { opacity: 1}
+  }
+
+.movieHover{
+    /* height:100% ;
+    width:50px ; */
+    /* transition-delay:2s ; */
+    /* background-color: red; */
+
+}
+
+.video-class{
+    border-radius: 10px 10px 0px 0px;
+    height:50% ;
+    width:100% ;
+    transition:3s ;
+    border: none;
+    /* background-color: black ; */
+}
+
+.playy{
+    cursor: pointer;
+}
 .itemInfo{
-    /* background-color: orange; */
-    height:100% ;
+    border-radius: 0px 0px 10px 10px;
+    /* background-color: black; */
+    height:50% ;
     width: 100% ;
+    transition:2s ;
 }
 
 .icons{
-    /* background-color: orange; */
+    /* background-color: grey; */
     height:20% ;
     display: flex;
     align-items: center;
