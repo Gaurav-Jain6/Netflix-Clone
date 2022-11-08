@@ -72,6 +72,9 @@ const MoviesLists = (props) => {
         val = minutes + "m" ;
     }
 
+    // let len = vObject.length ;
+    // console.log(vObject === undefined) ;
+
     // console.log(val) ;
     // console.log(genres) ;
     // console.log(runtime + " " + vote_average + " " + tagline + " " + release_date) ;
@@ -80,7 +83,7 @@ const MoviesLists = (props) => {
     // const trailer = 'https://www.youtube.com/embed/${vObject.key}?autoplay=1' ;
     let count = 0 ;
 
-    return ( 
+    return (    
         <div className="movielist"
         // style={{ left: isHovered && props.index * 225 - 50 + props.index * 2.5 }}
         onMouseEnter={() => setIsHovered(true)}
@@ -88,7 +91,7 @@ const MoviesLists = (props) => {
         >
             <img src={poster} alt="" className="movieimg" />
 
-        {isHovered && (
+        {vObject != undefined && isHovered && (
         <>
         <div className="movieHover"
         style={{ left: isHovered && props.index * 225 - 35 + props.index * 2.5 }}

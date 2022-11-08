@@ -23,39 +23,13 @@ const List = (props) => {
         let distance = listRef.current.getBoundingClientRect().x - 50;
         if (direction === "left" && slideNumber > 0) {
           setSlideNumber(slideNumber - 1);
-          listRef.current.style.transform = `translateX(${230 + distance}px)`;
+          listRef.current.style.transform = `translateX(${1330 + distance}px)`;
         }
         if (direction === "right" && slideNumber < 20) {
           setSlideNumber(slideNumber + 1);
-          listRef.current.style.transform = `translateX(${-230 + distance}px)`;
+          listRef.current.style.transform = `translateX(${-1330 + distance}px)`;
         }
       };
-
-    //   const vals = [] ;
-
-    // useEffect(() =>{
-    //     // https://api.themoviedb.org/3/genre/movie/list?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US
-    //     // https://api.themoviedb.org/3/discover/movie?api_key=b7c5d92115fce280b185d643ac4d4dfb&with_genres=28
-    //     const fetchData = async() => {
-            
-            
-    //         const data = await fetch(`${API_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`) ;
-    //         // console.log(data.json()) ;
-    //         const response = await data.json() ;
-    //         // await console.log(response.genres) ;
-    //         await setIds(response.genres) ;
-
-    //         let tp = await props.type ;
-    //         // await console.log(tp) ;
-    //         const vals = await ids.filter(ids => {
-    //             return ids.name === tp;
-    //         });
-    //         await console.log(vals[0].id) ;
-
-    //     }
-    //     fetchData() ;
-        
-    // },[ids] )
     
     useEffect(() =>{
         // https://api.themoviedb.org/3/genre/movie/list?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US
@@ -86,11 +60,11 @@ const List = (props) => {
         <div className="list">
             <span className="listTitle">{props.type} Movies</span>
             <div className="wrapper">
-                {/* <ArrowBackIosOutlined
+                <ArrowBackIosOutlined
                 className="sliderArrow-left"
                 onClick={() => handleClick("left")}
-                style={{ display: !isMoved && "none" }}
-                /> */}
+                // style={{ display: !isMoved && "none" }}
+                />
                 <div className="container-list" ref={listRef}>
                     {movieObject.map((val) => {
                         // let count = 0 ;
@@ -98,10 +72,10 @@ const List = (props) => {
                     })} ;
                 
                 </div>
-                {/* <ArrowForwardIosOutlined
-                className="sliderArrow-left right"
+                <ArrowForwardIosOutlined
+                className="sliderArrow-right"
                 onClick={() => handleClick("right")}
-                /> */}
+                />
             </div>
         </div>
      );
