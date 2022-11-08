@@ -15,7 +15,7 @@ const Home = () => {
             <Featured></Featured>
             <List type="Horror" id="27"></List>
             <List type="Crime" id="80"></List>
-            {/* <List type="Documentary" id="99"></List> */}
+            <List type="Documentary" id="99"></List>
             <List type="Action" id="28"></List>
             <List type="Family" id="10751"></List>
             <List type="Fantasy" id="14"></List>

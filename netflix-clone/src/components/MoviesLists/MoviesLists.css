@@ -13,6 +13,7 @@
 .movieimg{
     height: 100%;
     width: 100%;
+    
 }
 
 
@@ -36,12 +37,7 @@
     height: 360px;
     border-radius: 5px ;
     width:300px ;
-    /* background-color: orangered; */
-    /* display: none; */
     transition: 2s ;
-    /* border-radius: 20px ; */
-    /* transition: width 2s, height 2s, background-color 2s, transform 2s; */
-    /* animation: fadein 2s; */
     animation:pop-in 1s;
     box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.6);
 }
@@ -69,23 +65,41 @@
 }
 
 .video-class{
+    border-top:none ;
+    border-left:none ;
+    border-right:none ;
+    border-bottom: 2px solid white;
     border-radius: 10px 10px 0px 0px;
     height:50% ;
     width:100% ;
     transition:3s ;
-    border: none;
+    /* border: none; */
     /* background-color: black ; */
 }
 
+.icon-play-like{
+    width:50% ;
+    /* background-color: blue ; */
+    display: flex ;
+    justify-content: space-evenly;
+}
+
 .playy{
+    border: solid white;
+    border-radius: 11px ;
     cursor: pointer;
 }
+
 .itemInfo{
     border-radius: 0px 0px 10px 10px;
-    /* background-color: black; */
     height:50% ;
     width: 100% ;
     transition:2s ;
+}
+
+.icon-add-to-list{
+    width:20% ;
+    /* background-color: red; */
 }
 
 .icons{
@@ -93,21 +107,36 @@
     height:20% ;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .itemInfoTop{
     /* background-color: blue; */
+    padding-top: 10%;
     height:10% ;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 
+
 .desc{
     /* background-color: blue; */
     /* height:10% ; */
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    padding-left: 5% ;
+    /* justify-content: space-evenly; */
+}
+
+.genre{
+    display: flex;
+    align-items: center;
+    align-content:space-between;
+    /* background-color: orange; */
+    /* justify-content: space-evenly; */
+}
+
+.genre li{
+    padding-left: 5% ;
 }

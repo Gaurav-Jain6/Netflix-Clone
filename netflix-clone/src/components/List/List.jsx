@@ -78,9 +78,7 @@ const List = (props) => {
         // console.log(movieObject) ;
 
     },[] )
-    // {movieObject.map((val) => {
-    //     console.log(val)    
-    // })}  ;
+    
     let count = 0 ;
 
 
