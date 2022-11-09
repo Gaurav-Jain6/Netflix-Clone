@@ -31,6 +31,11 @@
     margin-right: 40px;
 }
 
+.navbar .container span a{
+    text-decoration: none;
+    color: white ;
+}
+
 span {
     margin-right: 20px;
     cursor: pointer;
@@ -42,39 +47,50 @@ span {
 }
 
 .right {
+    /* background-color: orange; */
     padding:50px ;
     display: flex;
     align-items: center;
 }
-    .icon {
-      margin: 0px 15px;
-      cursor: pointer;
-    }
-
-    .right img {
-      width: 30px;
-      height: 30px;
-      border-radius: 5px;
-      object-fit: cover;
-      cursor: pointer;
-    }
-
-    .options {
-    display: none;
-    background-color: var(--main-color);
-    border-radius: 5px;
-    }
-    .icon:hover{
-        
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-    }
-
-    .profile span {
-    padding: 10px;
+.icon {
+    margin: 0px 15px;
     cursor: pointer;
-    }
+}
+
+.right img {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.options {
+display: none;
+background-color: var(--main-color);
+border-radius: 5px;
+}
+.icon.dropDownNav:hover{
+    /* display: flex;
+    flex-direction: column;
+    position: absolute; */
+}
+
+.profile span {
+padding: 10px;
+cursor: pointer;
+}
+
+.icon.searchNav{
+    /* background-color: blue ; */
+    /* height: 2.5em ; */
+    font-size : 2rem ;
+    /* width: 50% ; */
+}
+
+.bellNav{
+
+}
 
     
     
