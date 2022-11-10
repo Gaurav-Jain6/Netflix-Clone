@@ -82,3 +82,124 @@ const List = (props) => {
 }
  
 export default List;
+
+
+// import React, { useState, useEffect, useRef } from 'react';
+// import MoviesLists from '../MoviesLists/MoviesLists';
+// import "./List.css"
+// import {
+//     ArrowBackIosOutlined,
+//     ArrowForwardIosOutlined,
+//   } from "@mui/icons-material" ;
+// import { API_KEY , API_URL , IMAGE_URL } from "../../API/secrets" ;
+
+
+
+// const List = (props) => {
+
+//     const [movieObject , setdata] = useState([]) ;
+//     const [isMoved, setIsMoved] = useState(false);
+//     const [slideNumber, setSlideNumber] = useState(0);
+//     const[ids, setIds] = useState([]) ;
+//     const[finalObj , setFinal] = useState([]) ;
+//     const [TvObject , setdataTv] = useState([]) ;
+
+//     const listRef = useRef();
+
+//     const handleClick = (direction) => {
+//         setIsMoved(true);
+//         let distance = listRef.current.getBoundingClientRect().x - 50;
+//         if (direction === "left" && slideNumber > 0) {
+//           setSlideNumber(slideNumber - 1);
+//           listRef.current.style.transform = `translateX(${1330 + distance}px)`;
+//         }
+//         if (direction === "right" && slideNumber < 20) {
+//           setSlideNumber(slideNumber + 1);
+//           listRef.current.style.transform = `translateX(${-1330 + distance}px)`;
+//         }
+//       };
+    
+//     useEffect(() =>{
+//         fetch(`${API_URL}/discover/movie/?api_key=${API_KEY}&with_genres=${props.id}`)
+//         .then((data) =>{
+//             return data.json() ;
+//         })
+//         .then((response) => {
+            
+//             // console.log(response) ;
+//             setdata(response.results) ;
+//             // setFinal([...finalObj, response.results]) ;
+//         })
+//         // console.log(finalObj) ;
+//         // console.log(movieObject) ;
+//         fetch(`${API_URL}/discover/tv/?api_key=${API_KEY}&with_genres=${props.id}`)
+//         .then((data) =>{
+//             return data.json() ;
+//         })
+//         .then((response1) => {
+            
+//             // console.log(response.results) ;
+//             setdataTv(response1.results) ;
+//             // setFinal([...finalObj,, response1.results]) ;
+//         })
+//         // console.log(finalObj);
+//         // console.log(TvObject) ;
+//     },[] )
+
+//     // console.log(finalObj);
+
+
+//     // console.log(TvObject) ;
+//     // console.log(finalObj) ;
+//     // useEffect(() =>{  
+//     //     fetch(`${API_URL}/discover/tv/?api_key=${API_KEY}&with_genres=${props.id}`)
+//     //     .then((data) =>{
+//     //         return data.json() ;
+//     //     })
+//     //     .then((response) => {
+            
+//     //         // console.log(response.results) ;
+//     //         setdataTv(response.results) ;
+//     //     })
+//     //     // console.log(TvObject) ;
+
+//     // },[] )
+
+//     // for(let i = 0 ; i < movieObject.length/2 ; i++)
+//     // {
+//     //     setFinal([...finalObj, movieObject[i]]) ;
+//     //     setFinal([...finalObj, TvObject[i]]) ;
+//     // }
+
+//     // console.log(finalObj) ;
+
+    
+//     let count = 0 ;
+
+
+//     return ( 
+//         <div className="list">
+//             <span className="listTitle">{props.type} Movies</span>
+//             <div className="wrapper">
+//                 <ArrowBackIosOutlined
+//                 className="sliderArrow-left"
+//                 onClick={() => handleClick("left")}
+//                 style={{ display: !isMoved && "none" }}
+//                 />
+//                 <div className="container-list" ref={listRef}>
+//                     {movieObject.map((val) => {
+//                         // let count = 0 ;
+//                         return <MoviesLists key={val.id} index={count++} movies={val}/> ;
+//                     })} ;
+                
+//                 </div>
+//                 <ArrowForwardIosOutlined
+//                 className="sliderArrow-right"
+//                 onClick={() => handleClick("right")}
+//                 />
+//             </div>
+//         </div>
+//      );
+// }
+ 
+// export default List;

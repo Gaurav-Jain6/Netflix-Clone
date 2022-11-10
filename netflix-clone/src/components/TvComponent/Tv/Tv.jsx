@@ -51,7 +51,7 @@ const Tv = (props) => {
         fetchData2() ;
     },[])
     
-    console.log(movieData) ;    
+    // console.log(movieData) ;    
     let {number_of_seasons, vote_average, tagline, first_air_date} = movieData;
     let genres = movieData.genres ;
 

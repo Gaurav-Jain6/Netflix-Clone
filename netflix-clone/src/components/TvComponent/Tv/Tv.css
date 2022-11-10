@@ -32,7 +32,7 @@
 .movielist:hover .movieHover{
     background-color: black;
     position:absolute ;
-    top : -164px ;
+    top : -158px ;
     cursor: pointer;
     height: 360px;
     border-radius: 5px ;

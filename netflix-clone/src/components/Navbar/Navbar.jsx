@@ -17,13 +17,19 @@ const Navbar = () => {
                 <div className="left">
                     <img src="./Images/logo.svg" alt="" />
                 </div>
-                <span>Homepage</span>
+                <span>
+                    <Link to="/">Homepage</Link>
+                </span>
                 <span className="TvShowsLink">
                     <Link to="/TvShows">TV Shows</Link>
                     {/* Tv Shows     */}
                 </span>
-                <span>Movies</span>
-                <span>New & Popular</span>
+                <span>
+                    <Link to="/Movies">Movies</Link>
+                </span>
+                <span>
+                    <Link to="/NewAndPopular">New & Popular</Link>
+                </span>
                 <span>My List</span>
             </div>
             <div className="right">

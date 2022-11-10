@@ -37,6 +37,10 @@ const MoviesLists = (props) => {
                 {   
                     return true ;
                 }
+                else if(response.results.length == 1 || videoObj.site == "YouTube")
+                {   
+                    return true ;
+                }
                 return false;
             });
             setObject(videoObject[0]) ;
