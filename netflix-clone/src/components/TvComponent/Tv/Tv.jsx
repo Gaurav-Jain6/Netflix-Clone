@@ -89,7 +89,7 @@ const Tv = (props) => {
                 </div>
                 <div className="itemInfoTop">
                 <li>{number_of_seasons} Seasons</li>
-                <li className="limit">{vote_average.toFixed(1)}</li>
+                <span className="limit">{vote_average.toFixed(1)}</span>
                 <li>{first_air_date}</li>
                 </div>
                 <div className="desc">
@@ -100,6 +100,11 @@ const Tv = (props) => {
                     {genres.map((val) => {
                         {if(count < 2)
                         {
+                            if(count == 0)
+                            {
+                                count++ ;
+                                return <span className="lispan">{val.name}</span>
+                            }
                             count++ ;
                             return <li>{val.name}</li> 
                         }}

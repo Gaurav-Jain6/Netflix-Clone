@@ -1,7 +1,7 @@
 .navbar {
     width: 100%;
     height: 8% ;
-    background-color: black;
+    background-color: #141414;
     color:white ;
     font-size: 14px;
     position: fixed;
@@ -13,7 +13,7 @@
     align-items: center;
 }
 .navbar.scrolled{
-    background-color: black;
+    background-color: #141414;
     transition  : 1s;
 }
 

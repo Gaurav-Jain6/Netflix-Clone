@@ -125,6 +125,21 @@
     /* justify-content: space-evenly; */
 }
 
+.limit{
+    color:#808080 ; 
+    /* height:30px ; */
+    width: 50px;
+    border:1px solid #808080 ;
+    text-align: center  ;
+    border-radius: 5px;
+}
+
+.limit:hover{
+    background-color: #141414;
+    color:white ;
+    border:1px solid white ;
+}
+
 .genre{
     display: flex;
     align-items: center;
@@ -135,4 +150,8 @@
 
 .genre li{
     padding-left: 5% ;
+}
+
+.genre span{
+    padding-left:5% ;
 }

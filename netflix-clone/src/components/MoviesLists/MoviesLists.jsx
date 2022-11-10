@@ -118,7 +118,7 @@ const MoviesLists = (props) => {
                 <div className="itemInfoTop">
                 {/* <span>{val}</span> */}
                 <li>{val}</li>
-                <li className="limit">{vote_average.toFixed(1)}</li>
+                <span className="limit">{vote_average.toFixed(1)}</span>
                 {/* <span>{release_date}</span> */}
                 <li>{release_date}</li>
                 </div>
@@ -131,6 +131,11 @@ const MoviesLists = (props) => {
                     {genres.map((val) => {
                         {if(count < 3)
                         {
+                            if(count == 0)
+                            {
+                                count++ ;
+                                return <span className="lispan">{val.name}</span>
+                            }
                             count++ ;
                             return <li>{val.name}</li> 
                         }}

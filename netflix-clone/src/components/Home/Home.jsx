@@ -59,6 +59,7 @@ import List from '../List/List';
 import TvList from '../TvComponent/TvList/TvList.jsx' ;
 import NewMovie from '../NewAndPopular/NewMovie.jsx'
 import NewTv from '../NewAndPopular/NewTv.jsx'
+import Footer from '../Footer/Footer.jsx'
 // import {Link} from "react-router-dom" ;
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
@@ -159,7 +160,7 @@ const Home = () => {
                     </Route>
 
                 </Routes>
-
+                <Footer></Footer>
             </div>
 
         </Router>
