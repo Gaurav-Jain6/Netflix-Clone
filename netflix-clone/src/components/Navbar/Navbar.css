@@ -52,6 +52,13 @@ span {
     display: flex;
     align-items: center;
 }
+
+.search-btn input{
+    outline:none;
+    border:none;
+    text-align: center;
+}
+
 .icon {
     margin: 0px 15px;
     cursor: pointer;
@@ -84,12 +91,55 @@ cursor: pointer;
 .icon.searchNav{
     /* background-color: blue ; */
     /* height: 2.5em ; */
+    color:white ;
     font-size : 2rem ;
     /* width: 50% ; */
 }
 
 .bellNav{
 
+}
+
+.search-area{
+    /* background-color: orange ; */
+    /* opacity: 0.5; */
+    width: 290px ;
+    margin-right:10px  ;
+    transition: 3s ease-in-out all ;
+}
+
+.search-btn-bar-area{
+    /* background-color: black ; */
+    color:white ;
+    border: 2px solid white;
+    display: flex ;
+    justify-content: flex-start;
+    background:linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.6) 30%);
+
+}
+
+.search-area input{
+    all:unset
+}
+
+.search-movies.bar{
+    background-color: blue;
+    text-decoration: none;
+    /* border- */
+    width:224px ;
+    height:33px ;
+    color:white ;
+    background:linear-gradient(to top, transparent 100%, rgb(0, 0, 0, 0.6) 7%);
+}
+
+.search-btn-bar-area-active{
+    /* background-color: black; */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.onactive{
+    /* color:orange ; */
 }
 
     

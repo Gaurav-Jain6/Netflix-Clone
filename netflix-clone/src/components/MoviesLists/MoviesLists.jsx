@@ -59,6 +59,28 @@ const MoviesLists = (props) => {
     // console.log(movieData) ;    
     let {runtime, vote_average, tagline, release_date} = movieData;
     let genres = movieData.genres ;
+    // console.log(genres) ;
+    // let str = "" ;
+    // if(genres != "undefined")
+    // {
+    //     console.log("I am here")
+    //     for(let i = 0 ; i < genres.length || i < 3  ; i++)
+    //     {
+    //         // if(genres[i] == undefined)
+    //         // {
+    //         //     break ;
+    //         // }
+    //         if(i == 2)
+    //         {
+    //             str += genres[i].name ;
+    //         }
+    //         else{
+    //             str += genres[i].name + "/" ;
+    //         }
+    //         console.log(genres[i].name)  ;
+    //     }
+    //     console.log(str) ;
+    // }
     
     var hours = Math.floor(runtime / 60);          
     var minutes = runtime % 60;

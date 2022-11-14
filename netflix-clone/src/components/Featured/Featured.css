@@ -84,3 +84,43 @@
         margin-right: 10px;
         cursor: pointer;
     }
+
+    .featured iframe{
+      background-color: #141414;
+      border-top:none ;
+      border-left:none ;
+      border-right:none ;
+      border-bottom: 2px solid white;
+      border-radius: 10px 10px 0px 0px;
+      height:100% ;
+      width:100% ;
+      transition:3s ;
+      left:0px ;
+    }
+
+    video{
+      width:1532px !important ;
+    }
+    
+    /* .html5-video-player .video-click-tracking, .html5-video-player .video-stream {
+      width: 1532px;
+      height: 816px;
+      left: 0;
+      top: -85px;
+    } */
+
+  /* element.style {
+    width: 1532px;
+      height: 816px;
+      left: 0;
+      top: -85px;
+  } */
+
+  .video-stream{
+    height: 816px !important;
+    width: 1520px !important;
+    display: block;
+    left: 0px;
+    top: -85px !important;
+    position: absolute;
+  }
