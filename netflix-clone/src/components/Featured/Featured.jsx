@@ -234,7 +234,8 @@ const Featured = (props) => {
                     <select name="genre" id="genre" 
                     onChange={(e)=>{
                         navigate("/genre")
-                        props.setMovieGenre(e.currentTarget.value) 
+                        // console.log(e.target.selectedOptions[0].innerText) ;
+                        props.setMovieGenre(e.target.selectedOptions[0].innerText + e.currentTarget.value) 
                     }}>
                         <option>Genre</option>
                         {genreMovieObject.map((movieGenreObject) => {

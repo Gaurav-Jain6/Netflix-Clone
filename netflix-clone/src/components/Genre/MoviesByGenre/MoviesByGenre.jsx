@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { API_KEY , API_URL , IMAGE_URL } from "../../../API/secrets" ;
 
 import Movie from "../../MoviesByNameComponent/Movie.jsx"
+import "./MoviesByGenre.css"
 
 const MoviesByGenre = (props) => {
 
@@ -28,17 +29,20 @@ const MoviesByGenre = (props) => {
                     fetchData2() ;
                 }
             })
-    },[])
+    })
     return ( 
-        <div className='movies'>
-            <h1></h1>
-            {props.movies.map((movieObject) => {
-                // console.log(movieObject.id) ;
-                if(movieObject.poster_path)
-                {
-                    return <Movie key={movieObject.id} movie={movieObject}></Movie> ;
-                }
-            })} ;
+        <div>
+            <h1 className="heading">{props.type} Movies</h1>
+            <div className='movies'>
+                {/* <h1>Hello</h1> */}
+                {props.movies.map((movieObject) => {
+                    // console.log(movieObject.id) ;
+                    if(movieObject.poster_path)
+                    {
+                        return <Movie key={movieObject.id} movie={movieObject}></Movie> ;
+                    }
+                })} ;
+            </div>
         </div>
      );
 }

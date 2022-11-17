@@ -98,16 +98,22 @@ const Home = () => {
     // Genre Use Effect
     const [moviesGenreObject , setMovieGenre] = useState([]) ;
     const[urlmg , setUrlsMovieGenre] = useState([]) ;
-    // const [currentMovie , setcm] = useState("") ;
+    const [typeGenre , settg] = useState("") ;
     // const [pages , setpage] = useState([]) ;
     // const [urls , setUrls] = useState([]) ;
     // const [previousMovie , setPm] = useState([]) ;
     // let url = [] ;
     let setMoviesGenre = async(newMovieId) =>
     {   
-        // setPm(currentMovie) ;
+        var str = newMovieId;
 
-        let data = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${newMovieId}&page=1`) ;
+        var chars = str.slice(0, str.search(/\d/));
+        var numbs = str.replace(chars, '');
+
+        // console.log(chars + " //// " +  numbs);
+        // setPm(currentMovie) ;
+        settg(chars) ;
+        let data = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${numbs}&page=1`) ;
         // let data = await fetch(`${API_URL}/search/multi?api_key=${API_KEY}&page=1&query=${newMovieName}`) ;
         let response = await data.json() ;
         // console.log(response) ;
@@ -117,7 +123,7 @@ const Home = () => {
         for(let i = 1 ; i < pagesCount ; i++)
         {
             // https://api.themoviedb.org/3/discover/movie?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US&sort_by=popularity.desc&page=10&with_genres=27
-            let urlt = `${API_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${i}&with_genres=${newMovieId}` ;
+            let urlt = `${API_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${i}&with_genres=${numbs}` ;
             url = [...url , urlt]
             setUrlsMovieGenre(url);
             // console.log(url) ;
@@ -125,7 +131,7 @@ const Home = () => {
         
         for(let i = 2 ; i < pagesCount && i < 5 ; i++)
         {
-            let data = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${i}&with_genres=${newMovieId}`) ;
+            let data = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${i}&with_genres=${numbs}`) ;
             let response = await data.json() ;
             // console.log(response.results) ;
             let data1 = response.results ;
@@ -207,7 +213,7 @@ const Home = () => {
                     <Route path="/genre" exact element={
                         <>
                             <Featured id="829280"></Featured>
-                            <MoviesByGenre urls={urlmg} movies={moviesGenreObject} pages={pages} ></MoviesByGenre>
+                            <MoviesByGenre urls={urlmg} type={typeGenre} movies={moviesGenreObject} pages={pages} ></MoviesByGenre>
                         </>
                     }>
 
