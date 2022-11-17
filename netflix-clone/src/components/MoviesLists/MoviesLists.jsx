@@ -8,6 +8,9 @@ import {
     ThumbDownOutlined,
   } from "@mui/icons-material" ;
   import YouTube from "react-youtube";
+  import { Link } from 'react-router-dom';
+  import MoviesNameComponent from "../MoviesNameContent/MoviesContent.jsx"
+ 
 
 
 const MoviesLists = (props) => {
@@ -19,6 +22,8 @@ const MoviesLists = (props) => {
 
     const[vObject , setObject] = useState({}) ;
     const[movieData , setMovieData] = useState({}) ;
+
+    const[showContent , showContentState] = useState(true) ;
 
     useEffect(() => {
         // https://api.themoviedb.org/3/movie/{movie_id}?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US
@@ -134,7 +139,9 @@ const MoviesLists = (props) => {
                         <ThumbDownOutlined  />
                     </div>
                     <div className="icon-add-to-list">
-                        <Add />
+                        <Link to="/genre">
+                            <Add></Add>
+                        </Link>
                     </div>
                 </div>
                 <div className="itemInfoTop">

@@ -9,6 +9,7 @@ const Navbar = (props) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const[newMovieName , setState] = useState("") ;
     const[show , setshow] = useState(false) ;
+    
     window.onscroll = () => {
       setIsScrolled(window.pageYOffset === 0 ? false : true);
       return () => (window.onscroll = null);
@@ -97,16 +98,16 @@ const Navbar = (props) => {
                 <div ref={menuRef} className="search-area">
                     {(show ? (
                         <div className="search-btn-bar-area">
-                            <Link to="/searched" onKeyPress={handleKeyPress}>
+                            <Link to="/searched" >
                             <Search onClick={()=>{
                                 setshow(!show) ;
                                 props.setMovie(newMovieName) ;
                                 }}  className="icon searchNav" />
                             </Link>
-                                    <input type="text" className="search-movies bar" placeholder="Titles, search, genres" 
-                            onChange={handleOnChange}
-                            // onKeyPress={(e)=>e.key=="Enter"? setshow(false) : ""} 
-                            onKeyPress={handleKeyPress}
+                            <input type="text" className="search-movies bar" placeholder="Titles, search, genres" 
+                                onChange={handleOnChange}
+                                // onKeyPress={(e)=>e.key=="Enter"? setshow(false) : ""} 
+                                onKeyPress={handleKeyPress}
                             />
                         </div>
                     ):(<div className="search-btn-bar-area-active">

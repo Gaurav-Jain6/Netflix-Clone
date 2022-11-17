@@ -124,3 +124,33 @@
     top: -85px !important;
     position: absolute;
   }
+
+  .category {
+    /* text-decoration: none; */
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    font-size: 40px;
+    font-weight: 900;
+    color: white;
+    display: flex;
+    align-items: center;
+  } 
+  select {
+    cursor: pointer;
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    margin-left: 20px;
+    padding: 5px;
+  }
+
+  select:hover{
+    background-color: #7E87A0;
+    opacity: 0.7;
+  }
+
+  option:hover{
+    
+  }
+  

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { API_KEY , API_URL , IMAGE_URL } from "../../../API/secrets" ;
 
-import Movie from "./Movie" ;
-import "./MoviesByName.css"
-import { API_KEY , API_URL , IMAGE_URL } from "../../API/secrets" ;
+import Movie from "../../MoviesByNameComponent/Movie.jsx"
 
-const MoviesByName = (props) => {
+const MoviesByGenre = (props) => {
+
     const [moviesData , setMovieData] = useState([]) ;
     
     useEffect(() => {
@@ -29,9 +29,9 @@ const MoviesByName = (props) => {
                 }
             })
     },[])
-
     return ( 
         <div className='movies'>
+            <h1></h1>
             {props.movies.map((movieObject) => {
                 // console.log(movieObject.id) ;
                 if(movieObject.poster_path)
@@ -43,4 +43,4 @@ const MoviesByName = (props) => {
      );
 }
  
-export default MoviesByName;
+export default MoviesByGenre;
