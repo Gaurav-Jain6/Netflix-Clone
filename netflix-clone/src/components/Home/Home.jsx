@@ -15,6 +15,7 @@ import { API_KEY , API_URL , IMAGE_URL } from "../../API/secrets" ;
 import MoviesByName from '../MoviesByNameComponent/MoviesByName.jsx'
 import MovieNameComponent from "../MoviesNameContent/MoviesContent.jsx"
 import MoviesByGenre from '../Genre/MoviesByGenre/MoviesByGenre';
+import TvByGenre from '../Genre/TvByGenre/TvByGenre' ;
 
 const Home = () => {
     let addGenres = true ;
@@ -145,6 +146,50 @@ const Home = () => {
         setMovieGenre(moviesData) ;
     }
 
+    const [tvGenreObject , setTvGenre] = useState([]) ;
+    const[urltg , setUrlsTvGenre] = useState([]) ; // url tv genre
+    const [tvTypeGenre , settvg] = useState("") ; // set tv genre
+    
+    let setTvsGenre = async(newMovieId) =>
+    {   
+        var str = newMovieId;
+
+        var chars = str.slice(0, str.search(/\d/));
+        var numbs = str.replace(chars, '');
+
+        // console.log(chars + " //// " +  numbs);
+        // setPm(currentMovie) ;
+        settvg(chars) ;
+        let data = await fetch(`${API_URL}/discover/tv?api_key=${API_KEY}&with_genres=${numbs}&page=1`) ;
+        let response = await data.json() ;
+        // console.log(response) ;
+        let tvData = response.results ;
+        let pagesCount = response.total_pages; //3
+
+        for(let i = 1 ; i < pagesCount ; i++)
+        {
+            // https://api.themoviedb.org/3/discover/movie?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US&sort_by=popularity.desc&page=10&with_genres=27
+            let urlt = `${API_URL}/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${i}&with_genres=${numbs}` ;
+            url = [...url , urlt]
+            setUrlsTvGenre(url);
+        }
+        
+        for(let i = 2 ; i < pagesCount && i < 5 ; i++)
+        {
+            let data = await fetch(`${API_URL}/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${i}&with_genres=${numbs}`) ;
+            let response = await data.json() ;
+            // console.log(response.results) ;
+            let data1 = response.results ;
+            // console.log(data1.length) ;
+            for(let j = 0 ; j < data1.length ; j++)
+            {
+                tvData.push(data1[j]) ;
+            }
+        }
+
+        setTvGenre(tvData) ;
+    }
+
     return ( 
 
         
@@ -158,7 +203,7 @@ const Home = () => {
                 <Routes>
                     <Route path="/TvShows" exact element=
                     {<>
-                        <Featured id="829280"></Featured>
+                        <Featured id="829280" setTvGenre={setTvsGenre} addGenres ="true" type="Series"></Featured>
                         {tvObject.map((val) => {
                             // let count = 0 ;
                             return <TvList key={val.id} id={val.id} type={val.name}/> })
@@ -219,6 +264,18 @@ const Home = () => {
 
                     </Route>
                 </Routes>
+
+                <Routes>
+                    <Route path="/genreTv" exact element={
+                        <>
+                            <Featured id="829280"></Featured>
+                            <TvByGenre urls={urltg} type={tvTypeGenre} tv={tvGenreObject} pages={pages} ></TvByGenre>
+                        </>
+                    }>
+
+                    </Route>
+                    </Routes>
+                
 
                 <Routes>
                     <Route path="/Movies" exact element=

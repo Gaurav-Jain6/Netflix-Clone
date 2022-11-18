@@ -223,28 +223,56 @@ const Featured = (props) => {
        })
        
    },[] )
+
+    const[genreTvObject , setTvGenre] = useState([]) ;
+    useEffect(() =>{
+        
+        fetch(`${API_URL}/genre/tv/list?api_key=${API_KEY}&language=en-US`)
+       .then((data) =>{
+           return data.json() ;
+       })
+       .then((response) => {
+        //    console.log(response.genres) ;
+        setTvGenre(response.genres) ;
+       })
+       
+   },[] )
     
    
     return (
         <div className="featured">
-            {props.addGenres && props.type=="Movies" ? 
+            {props.addGenres? 
             (<div className='category-genres'>
                 <div className="category">
                     <span>{props.type === "Movies" ? "Movies" : "Series"}</span>
-                    <select name="genre" id="genre" 
-                    onChange={(e)=>{
-                        navigate("/genre")
-                        // console.log(e.target.selectedOptions[0].innerText) ;
-                        props.setMovieGenre(e.target.selectedOptions[0].innerText + e.currentTarget.value) 
-                    }}>
-                        <option>Genre</option>
-                        {genreMovieObject.map((movieGenreObject) => {
-                            return <option value={movieGenreObject.id}>{movieGenreObject.name}</option>
-                        })} ;
-                    </select>
+                    {props.type === "Movies" ?  
+                        (<select name="genre" id="genre" 
+                        onChange={(e)=>{
+                            navigate("/genre")
+                            // console.log(e.target.selectedOptions[0].innerText) ;
+                            props.setMovieGenre(e.target.selectedOptions[0].innerText + e.currentTarget.value) 
+                        }}>
+                            <option>Genre</option>
+                            {genreMovieObject.map((movieGenreObject) => {
+                                return <option value={movieGenreObject.id}>{movieGenreObject.name}</option>
+                            })} ;
+                        </select>)
+                        : 
+                        (<select name="genre" id="genre" 
+                        onChange={(e)=>{
+                            navigate("/genreTv")
+                            // console.log(e.target.selectedOptions[0].innerText) ;
+                            props.setTvGenre(e.target.selectedOptions[0].innerText + e.currentTarget.value) 
+                        }}>
+                            <option>Genre</option>
+                            {genreTvObject.map((TvGenreObject) => {
+                                return <option value={TvGenreObject.id}>{TvGenreObject.name}</option>
+                            })} ;
+                        </select>)
+                    }
                 </div>
 
-            </div>) : 
+            </div>) :
             (<div></div>)
             }
             <img src={poster} alt="" />
