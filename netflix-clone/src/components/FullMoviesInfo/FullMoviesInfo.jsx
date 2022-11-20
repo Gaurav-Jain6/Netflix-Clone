@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import "./MoviesContent.css" ;
+import "./FullMoviesInfo.css" ;
 
-const MoviesContent = () => {
+const FullMoviesInfo = () => {
     return ( 
     <div className="content-body">
        <div className="iframe-video">
@@ -39,4 +39,4 @@ const MoviesContent = () => {
     </div> );
 }
  
-export default MoviesContent;
+export default FullMoviesInfo;

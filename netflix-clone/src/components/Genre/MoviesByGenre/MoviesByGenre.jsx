@@ -24,7 +24,7 @@ const MoviesByGenre = (props) => {
                             movieMap = [...movieMap , response.results] ;
                             setMovieData(movieMap) ;
                         })
-    
+
                     }
                     fetchData2() ;
                 }

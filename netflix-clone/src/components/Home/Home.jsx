@@ -13,7 +13,7 @@ import Footer from '../Footer/Footer.jsx'
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { API_KEY , API_URL , IMAGE_URL } from "../../API/secrets" ;
 import MoviesByName from '../MoviesByNameComponent/MoviesByName.jsx'
-import MovieNameComponent from "../MoviesNameContent/MoviesContent.jsx"
+import MovieNameComponent from "../FullMoviesInfo/FullMoviesInfo.jsx"
 import MoviesByGenre from '../Genre/MoviesByGenre/MoviesByGenre';
 import TvByGenre from '../Genre/TvByGenre/TvByGenre' ;
 

@@ -9,7 +9,7 @@ import {
   } from "@mui/icons-material" ;
   import YouTube from "react-youtube";
   import { Link } from 'react-router-dom';
-  import MoviesNameComponent from "../MoviesNameContent/MoviesContent.jsx"
+  import MoviesNameComponent from "../FullMoviesInfo/FullMoviesInfo.jsx"
  
 
 
@@ -92,15 +92,15 @@ const MoviesLists = (props) => {
     let val = "" ;
     if(hours > 0)
     {
-        val = hours + "h" + " " + minutes + "m" ;
+        val = hours + "hr" + " " + minutes + "min" ;
     }
     else if(minutes == 0 )
     {
-        val = hours + "h" ;
+        val = hours + "hr" ;
     }
     else
     {
-        val = minutes + "m" ;
+        val = minutes + "min" ;
     }
 
     // let len = vObject.length ;
@@ -139,9 +139,7 @@ const MoviesLists = (props) => {
                         <ThumbDownOutlined  />
                     </div>
                     <div className="icon-add-to-list">
-                        <Link to="/genre">
-                            <Add></Add>
-                        </Link>
+                            <Add onClick></Add>
                     </div>
                 </div>
                 <div className="itemInfoTop">

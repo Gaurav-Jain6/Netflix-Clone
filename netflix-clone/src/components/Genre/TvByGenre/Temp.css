@@ -1,0 +1,140 @@
+.movielist-temp{
+    height:200px ;
+    width: 225px ;
+    background-color: white ;
+    margin-right:5px ;
+    overflow: hidden;
+    background-color: #141414;
+    /* cursor: pointer;
+    color: white; */
+    color:white ;
+}
+
+.movieimg{
+    height: 100%;
+    width: 100%;
+    
+}
+
+
+.movielist-temp:hover .movieimg{
+    animation: fadeinout 1.5s ease-out backwards;
+
+}
+
+@keyframes fadeinout {
+    0% { opacity: 1; }
+  }
+  @keyframes fadeinout {
+    100% { opacity: 0; }
+}
+
+.movielist-temp:hover .movieHover{
+    background-color: black;
+    position:absolute ;
+    top : 685px ;
+    cursor: pointer;
+    height: 360px;
+    border-radius: 5px ;
+    width:300px ;
+    transition: 2s ;
+    animation:pop-in 1s;
+    box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes pop-in {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+    }
+
+@keyframes pop{
+    from  {transform: scale(1);}
+    to  {transform: scale(2);}
+  }
+@keyframes fadein {
+    from { opacity: 0}
+    to   { opacity: 1}
+  }
+
+.movieHover{
+    /* height:100% ;
+    width:50px ; */
+    /* transition-delay:2s ; */
+    /* background-color: red; */
+
+}
+
+.video-class{
+    border-top:none ;
+    border-left:none ;
+    border-right:none ;
+    border-bottom: 2px solid white;
+    border-radius: 10px 10px 0px 0px;
+    height:50% ;
+    width:100% ;
+    transition:3s ;
+}
+
+.icon-play-like{
+    width:50% ;
+    display: flex ;
+    justify-content: space-evenly;
+}
+
+.playy{
+    border: solid white;
+    border-radius: 11px ;
+    cursor: pointer;
+}
+
+.itemInfo{
+    border-radius: 0px 0px 10px 10px;
+    height:50% ;
+    width: 100% ;
+    transition:2s ;
+}
+
+.icon-add-to-list{
+    width:20% ;
+    /* background-color: red; */
+}
+
+.icons{
+    /* background-color: grey; */
+    height:20% ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.itemInfoTop{
+    /* background-color: blue; */
+    padding-top: 10%;
+    height:10% ;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+.desc{
+    /* background-color: blue; */
+    /* height:10% ; */
+    display: flex;
+    align-items: center;
+    padding-left: 5% ;
+    /* justify-content: space-evenly; */
+}
+
+.genre{
+    display: flex;
+    align-items: center;
+    align-content:space-between;
+    /* background-color: orange; */
+    /* justify-content: space-evenly; */
+}
+
+.genre li{
+    padding-left: 5% ;
+}
+

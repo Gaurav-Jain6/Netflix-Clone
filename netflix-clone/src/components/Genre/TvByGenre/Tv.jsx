@@ -13,7 +13,7 @@ class Movie extends Component {
     {
         // https://api.themoviedb.org/3/movie/299534?api_key=bdd243ea847239dc0799805e63e189f0
         let response = await axios.get(
-            `${API_URL}/movie/${this.props.movie.id}?api_key=${API_KEY}`
+            `${API_URL}/tv/${this.props.movie.id}?api_key=${API_KEY}`
             ) ;
         // console.log(response);
         // console.log(response.data) ;
