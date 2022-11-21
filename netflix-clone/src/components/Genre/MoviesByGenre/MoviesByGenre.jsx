@@ -3,6 +3,7 @@ import { API_KEY , API_URL , IMAGE_URL } from "../../../API/secrets" ;
 
 import Movie from "../../MoviesByNameComponent/Movie.jsx"
 import "./MoviesByGenre.css"
+import TempMovie from "./TempMovies" ;
 
 const MoviesByGenre = (props) => {
 
@@ -30,6 +31,7 @@ const MoviesByGenre = (props) => {
                 }
             })
     })
+    let count = 0 ;
     return ( 
         <div>
             <h1 className="heading">{props.type} Movies</h1>
@@ -39,7 +41,11 @@ const MoviesByGenre = (props) => {
                     // console.log(movieObject.id) ;
                     if(movieObject.poster_path)
                     {
-                        return <Movie key={movieObject.id} movie={movieObject}></Movie> ;
+                        count+=1 ;
+                        let tempval = count-1 ;
+                        let temp = count-1 ;
+
+                        return <TempMovie key={movieObject.id} movie={movieObject} index={parseInt(tempval++%4)} top={parseInt(temp++/4)}></TempMovie> ;
                     }
                 })} ;
             </div>

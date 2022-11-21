@@ -24,6 +24,7 @@ const MoviesLists = (props) => {
     const[movieData , setMovieData] = useState({}) ;
 
     const[showContent , showContentState] = useState(true) ;
+    const[genresstate , setgenre] = useState("") ;
 
     useEffect(() => {
         // https://api.themoviedb.org/3/movie/{movie_id}?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US
@@ -56,6 +57,22 @@ const MoviesLists = (props) => {
             let response = await data.json() ;
             // console.log(response) ;  
             setMovieData(response) ;
+            for(let i = 0 ; i < response.genres.length && i < 3  ; i++)
+            {
+                if(response.genres.length == 2 && i == 1)
+                {
+                    str += response.genres[i].name ;
+                    break ;
+                }
+                if(i == 2)
+                {
+                    str += response.genres[i].name ;
+                }
+                else{
+                    str += response.genres[i].name + " / " ;
+                }
+            }
+            setgenre(str) ;
         }
         fetchData() ;
         fetchData2() ;
@@ -63,7 +80,8 @@ const MoviesLists = (props) => {
     
     // console.log(movieData) ;    
     let {runtime, vote_average, tagline, release_date} = movieData;
-    let genres = movieData.genres ;
+    let str = "" ;
+    // let genres = movieData.genres ;
     // console.log(genres) ;
     // let str = "" ;
     // if(genres != "undefined")
@@ -154,8 +172,8 @@ const MoviesLists = (props) => {
                     {tagline.length === 0 ? props.movies.title : tagline}
                 </div>
                 <div className="genre">
-                    
-                    {genres.map((val) => {
+                    <span>{genresstate}</span>
+                    {/* {genres.map((val) => {
                         {if(count < 3)
                         {
                             if(count == 0)
@@ -166,7 +184,7 @@ const MoviesLists = (props) => {
                             count++ ;
                             return <li>{val.name}</li> 
                         }}
-                    })}
+                    })} */}
                 </div>
             </div>
         </div>

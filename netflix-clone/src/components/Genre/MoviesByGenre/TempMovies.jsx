@@ -6,24 +6,24 @@ import {
     ThumbUpAltOutlined,
     ThumbDownOutlined,
 } from "@mui/icons-material" ;
-import "./Temp.css" ;
+import "./TempMovies.css" ;
 
-const Temp = (props) => {
-    const[tvObject , setTvObject] = useState({}) ;
+const TempMovies = (props) => {
+    const[movieObject , setMovieObject] = useState({}) ;
 
     useEffect(()=>{
 
         const fetchData = async() => {
-            const data = await fetch(`${API_URL}/tv/${props.movie.id}?api_key=${API_KEY}`) ;
+            const data = await fetch(`${API_URL}/movie/${props.movie.id}?api_key=${API_KEY}`) ;
             const response = await data.json() ;
             // console.log(response) ;
             let posterPath = IMAGE_URL + response.poster_path;
             // console.log(posterPath) ;
             response.poster_path = posterPath ;
-            setTvObject(response) ;
-            // console.log(tvObject) ;
+            setMovieObject(response) ;
+            // console.log(movieObject) ;
         }
-        // console.log(tvObject) ;
+        // console.log(movieObject) ;
         
         fetchData() ;
     }, [])
@@ -36,7 +36,7 @@ const Temp = (props) => {
 
     useEffect(() => {
         const fetchData = async() => {
-            const data = await fetch(`${API_URL}/tv/${props.movie.id}/videos?api_key=${API_KEY}&language=en-US`) ;
+            const data = await fetch(`${API_URL}/movie/${props.movie.id}/videos?api_key=${API_KEY}&language=en-US`) ;
             const response = await data.json() ;
             // console.log(response) ;
             let videoObject = await response.results.filter((videoObj) => {
@@ -58,7 +58,7 @@ const Temp = (props) => {
         }
         const fetchData2 = async() => {
             // https://api.themoviedb.org/3/movie/550?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US
-            const data = await fetch(`${API_URL}/tv/${props.movie.id}?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US`) ;
+            const data = await fetch(`${API_URL}/movie/${props.movie.id}?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US`) ;
             let response = await data.json() ;
             console.log(response) ;     
             setMovieData(response) ;
@@ -76,31 +76,20 @@ const Temp = (props) => {
                 else{
                     str += response.genres[i].name + " / " ;
                 }
-                // console.log(response.genres[i].name)  ;
             }
-            // console.log(str) ;
             setgenre(str) ;
-            let len = response.episode_run_time ;
-            episodeRunTime = response.episode_run_time[0] ; 
-            
-            if(len == 0)
-            {
-                episodeRunTime = "25" ;
-            }
-
-            setTime(episodeRunTime) ;
         }
         fetchData() ;
         fetchData2() ;
     },[])
     
-    let {number_of_seasons, episode_run_time, vote_average, tagline, first_air_date} = movieData;
+    let {number_of_seasons, runtime, vote_average, tagline, release_date} = movieData;
     // let genres = movieData.genres ;
     let episodeRunTime = "" ;
     let str = "" ;
    
-    var hours = Math.floor(timestate / 60);          
-    var minutes =  timestate % 60;
+    var hours = Math.floor(runtime / 60);          
+    var minutes =  runtime % 60;
     let val = "" ;
     if(hours > 0)
     {
@@ -122,7 +111,7 @@ const Temp = (props) => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         >
-            <img src={tvObject.poster_path} alt="" className="movieimg" />
+            <img src={movieObject.poster_path} alt="" className="movieimg" />
             {vObject != undefined && isHovered && (
         <>
         <div className="movieHover"
@@ -145,9 +134,7 @@ const Temp = (props) => {
                 {/* <span>{val}</span> */}
                 <li>{val}</li>
                 <span className="limit">{vote_average.toFixed(1)}</span>
-                {/* <span>{release_date}</span> */}
-                <span>{number_of_seasons} Seasons</span>
-                {/* <li>{first_air_date}</li> */}
+                <span>{release_date}</span>
                 </div>
                 <div className="desc">
                     {/* {props.movies.overview} */}
@@ -166,4 +153,4 @@ const Temp = (props) => {
     );
 }
  
-export default Temp;
+export default TempMovies;
