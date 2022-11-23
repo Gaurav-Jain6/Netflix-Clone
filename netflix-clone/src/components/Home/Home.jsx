@@ -16,6 +16,7 @@ import MoviesByName from '../MoviesByNameComponent/MoviesByName.jsx'
 import MovieNameComponent from "../FullMoviesInfo/FullMoviesInfo.jsx"
 import MoviesByGenre from '../Genre/MoviesByGenre/MoviesByGenre';
 import TvByGenre from '../Genre/TvByGenre/TvByGenre' ;
+import FullMoviesInfo from '../FullMoviesInfo/FullMoviesInfo.jsx';  
 
 const Home = () => {
     let addGenres = true ;
@@ -304,6 +305,14 @@ const Home = () => {
                         <NewTv type="tv" duration="This Week's" showType="Trending" url="/trending/tv/week"></NewTv>
                         <NewMovie type="movie" duration="" showType="Upcoming" url="/movie/upcoming"></NewMovie>  
                     
+                    </>}
+                    >
+
+                    </Route>
+                </Routes>
+                <Routes>
+                    <Route path="/fullMovieInfo" exact element={<>
+                        <FullMoviesInfo></FullMoviesInfo>
                     </>}
                     >
 

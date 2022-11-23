@@ -1,12 +1,14 @@
 .content-body{
-    position:absolute ;
-    z-index: 99 ;
+    /* position:absolute ; */
+    z-index: 999 ;
     /* margin: 32px 334.6px 32px  334.6px  ; */
     top:-100px ;
-    margin: 0px 334.6px 0px  334.6px !important  ;
+    /* margin: 0px 334.6px 0px  334.6px !important  ; */
+    margin: 60px 334.6px 0px  20px !important  ;
     height:2098.95px ;
     width:850px ;
-    background-color:orange ;
+    /* background-color:orange ; */
+    background-color:#181818 ;
     border-radius: 10px 10px 0 0;
 }
 
@@ -15,6 +17,14 @@
     height:20% ;
     border-radius: 10px 10px 0 0;
 
+}
+
+.iframe-video-class
+{
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: 10px 10px 0 0;
 }
 
 .main-container{
@@ -43,6 +53,9 @@
 
 .movie-description{
     height:70% ;
+    color:white ;
+    margin: 20px 0 0 0;
+    font-size: 1.2rem ;
 
 }
 
@@ -50,16 +63,29 @@
     /* position: relative; */
     height:100% ;
     width:30% ;
-    background-color: blueviolet;
+    background-color: #141414;
 }
 
-.cast-info{
+.upper-cast-info{
     height:50% ;
     background-color: violet;
 }
 
 .genre-info{
     height:50% ;
+}
+
+.genre-span{
+    margin:3px ;
+    color:#777 ;
+    font-style: italic;
+    font-weight: 1000;
+}
+
+.genre-span-info{
+    margin:3px ;
+    color:white ;
+    font-weight: 500;
 }
 
 .more-like-this{
@@ -70,5 +96,40 @@
 .about-movie-info{
     padding-bottom:2em ;
     height:15% ;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
+
+.about-span{
+    font-size: 1.5rem ;
+    color:white ;
+}
+
+.about-movie{
+    height:80% ;
+    margin-top:30px ;
+    display:flex; 
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.about{
+    color:#757575 ;
+    font-weight: 300 ;
+}
+
+.general{
+    margin-right:5px ;
+}
+
+.director-info{
+    color:white ;
+}
+
+.writer-info{
+    color:white ;
+}
+
+.cast-info{
+    color:white ;   
+}
+
