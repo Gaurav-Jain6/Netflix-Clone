@@ -13,7 +13,7 @@
 }
 
 .iframe-video{
-    background-color: red;
+    /* background-color: red; */
     height:20% ;
     border-radius: 10px 10px 0 0;
 
@@ -33,8 +33,8 @@
 }
 
 .movie-cast-content-info{
-    height:15% ;
-    background-color: aliceblue;
+    height:11% ;
+    /* background-color: aliceblue; */
     position: relative;
     display: flex;
 }
@@ -43,32 +43,61 @@
     /* position: relative; */
     height:100% ;
     width:70% ;
-    background-color: brown;
+    /* background-color: brown; */
 }
 
-.movie-info{
-    height:30% ;
-    background-color: orangered;
+.movie-info-fullContent{
+    height:20% ;
+    /* background-color: orangered; */
+    display:flex ;
+    align-items: center ;
+}
+
+.info_span{
+    color:white ;
+    font-weight: 800;
+    font-size: 1.2rem ;
+}
+
+.contentRating{
+
+    border: 1px solid ;
+    padding: 0 8px;
+    /* margin:2px ; */
 }
 
 .movie-description{
+    padding-right: 30px;
     height:70% ;
     color:white ;
     margin: 20px 0 0 0;
-    font-size: 1.2rem ;
-
+    /* font-size: 1.2rem ; */
+    font-size: 1rem ;
 }
 
 .cast-content-info{
     /* position: relative; */
-    height:100% ;
+    padding-top: 10px ;
+    height:50% ;
     width:30% ;
-    background-color: #141414;
+    background-color: #181818;
+}
+
+.anchorLink{
+    text-decoration: none;
+    color: white ;
+    border-bottom: 1px solid;
 }
 
 .upper-cast-info{
     height:50% ;
-    background-color: violet;
+    /* background-color: violet; */
+}
+
+.cast-span-info{
+    margin: 3px;
+    color: white;
+    font-weight: 500;
 }
 
 .genre-info{
@@ -131,5 +160,9 @@
 
 .cast-info{
     color:white ;   
+}
+
+.general-info{
+    color:white ;
 }
 
