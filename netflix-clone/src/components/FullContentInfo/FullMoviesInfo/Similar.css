@@ -1,0 +1,50 @@
+.similar-movies{
+    background-color: #2F2F2F ;
+    margin: 20px 11px 20px 0;
+    height: 365px;
+    width: 240px;
+    border-radius: 10px;
+}
+
+.similar-movieimg{
+    height: 150px;
+    width: 240px;
+    border-radius: 10px 10px 0px 0px;
+    /* margin-right: 11px;
+    margin-top: 10px; */
+}
+
+.content-info-box{
+    /* background-color: cyan; */
+    height: 8%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color:white ;
+    padding:15px ;
+}
+
+.similar-contentRating{
+    border:1px solid ;
+    padding : 3px ;
+
+}
+
+.similar-date{
+}
+
+.content-info-overview{
+    padding:15px ;
+    height: 50%;
+    overflow-x: hidden;
+    /* overflow-y: visible; */
+}
+
+.content-info-overview::-webkit-scrollbar {
+    display: none;
+}
+
+p{
+    color:white ;
+    font-size: 1rem ;
+}

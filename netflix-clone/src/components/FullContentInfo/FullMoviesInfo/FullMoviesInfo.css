@@ -118,8 +118,26 @@
 }
 
 .more-like-this{
+    overflow-x:hidden ;
     height: 50% ;
-    background-color: chartreuse;
+    background-color: #181818;
+}
+
+.more-like-this::-webkit-scrollbar {
+    display: none;
+}
+
+.more-like-span{
+    /* background-color: black; */
+    padding:0px 20px 20px 0;
+    font-size: 1.9rem;
+    color:white ;
+    font-weight: 1000;
+}
+
+.more-like-component{
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .about-movie-info{

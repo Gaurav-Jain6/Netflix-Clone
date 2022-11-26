@@ -142,3 +142,15 @@
     position:absolute ;
     z-index: 999;
 } */
+
+.Hawkins-Icon-Standard{
+
+    color: rgb(56, 56, 56);
+    border: 1px solid;
+    border-radius: 20px;
+}
+
+.Hawkins-Icon-Standard :hover{
+
+    color: rgb(255, 255, 255);
+}

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import "./FullMoviesInfo.css" ;
 import { useLocation } from "react-router-dom";
-import { API_URL, API_KEY, API_IMAGE } from "../../API/secrets";
+import { API_URL, API_KEY, API_IMAGE } from "../../../API/secrets";
 // import {HashLink} from "react-router-hash-link"
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import Similar from "./Similar" ;
 
 const FullMoviesInfo = () => {
 
@@ -12,7 +13,7 @@ const FullMoviesInfo = () => {
     // console.log(from);
 
     const[vObject , setObject] = useState({}) ;
-    const[similarMovieData , setSimilarMovieData] = useState({}) ;
+    const[similarMovieData , setSimilarMovieData] = useState([]) ;
     const[genre , setgenre] = useState("") ;
     const[fullCastData , setCastMovieData] = useState({}) ;
     // const[director , setDirector] = useState([]) ;
@@ -52,12 +53,13 @@ const FullMoviesInfo = () => {
             }
             
         // https://api.themoviedb.org/3/movie/{movie_id}/similar?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US&page=1
+        // SIMILAR MOVIES
         const fetchData1 = async() => {
            
             const data = await fetch(`${API_URL}/movie/${from.id}/similar?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US&page=1`) ;
             let response = await data.json() ;
-            setSimilarMovieData(response) ;
-            // console.log(response) ;
+            setSimilarMovieData(response.results) ;
+            // console.log(response.results) ;
         }
         
         const fetchData2 = async() => {
@@ -183,7 +185,7 @@ const FullMoviesInfo = () => {
                 return false;
             });
             rating = contentRatingObject[0].certification ;
-            if(rating.length == 0)
+            if(rating.length == 0 || rating == "NR")
             {
                 rating = "U/A 13+"
                 ratingContext = "Suitable for persons aged 13 and above and under parental guidance for people under age of 13" ;
@@ -241,7 +243,8 @@ const FullMoviesInfo = () => {
         val = minutes + "min" ;
     }
 
-
+    let count = 0 ;
+    
     return ( 
     <div className="content-body">
        <div className="iframe-video">
@@ -278,7 +281,14 @@ const FullMoviesInfo = () => {
                 </div>
             </div>
             <div className="more-like-this">
-
+                <h3 className='more-like-span'>More Like This</h3>
+                <div className="more-like-component">
+                    {similarMovieData.map((val) => {
+                        // let count = 0 ;
+                        // console.log(val) ;
+                        return <Similar key={val.id} index={count++} movies={val}/> ;
+                    })} ;
+                </div>
             </div>
             <div className="about-movie-info">
                 <span className="about-span">About {from.title}</span>
