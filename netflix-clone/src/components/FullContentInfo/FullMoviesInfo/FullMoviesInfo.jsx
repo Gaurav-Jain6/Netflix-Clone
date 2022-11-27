@@ -185,7 +185,7 @@ const FullMoviesInfo = () => {
                 return false;
             });
             rating = contentRatingObject[0].certification ;
-            if(rating.length == 0 || rating == "NR")
+            if(rating.length == 0 || rating == "NR" || rating == "PG")
             {
                 rating = "U/A 13+"
                 ratingContext = "Suitable for persons aged 13 and above and under parental guidance for people under age of 13" ;

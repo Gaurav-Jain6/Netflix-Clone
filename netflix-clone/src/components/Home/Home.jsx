@@ -17,7 +17,7 @@ import MoviesByName from '../MoviesByNameComponent/MoviesByName.jsx'
 import MoviesByGenre from '../Genre/MoviesByGenre/MoviesByGenre';
 import TvByGenre from '../Genre/TvByGenre/TvByGenre' ;
 import FullMoviesInfo from '../FullContentInfo/FullMoviesInfo/FullMoviesInfo.jsx' ;
-// import FullMoviesInfo from '../FullContentInfo/FullMoviesInfo/FullMoviesInfo.jsx';  
+import FullTvInfo from '../FullContentInfo/FullTvInfo/FullTvInfo.jsx'
 
 const Home = () => {
     let addGenres = true ;
@@ -314,6 +314,14 @@ const Home = () => {
                 <Routes>
                     <Route path="/fullMovieInfo" exact element={<>
                         <FullMoviesInfo></FullMoviesInfo>
+                    </>}
+                    >
+
+                    </Route>
+                </Routes>
+                <Routes>
+                    <Route path="/fullTvInfo" exact element={<>
+                        <FullTvInfo></FullTvInfo>
                     </>}
                     >
 
