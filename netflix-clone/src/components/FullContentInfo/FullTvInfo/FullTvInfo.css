@@ -1,0 +1,41 @@
+.more-like-this {
+    overflow-x: hidden;
+    height: 25%;
+    background-color: #181818;
+}
+
+.more-like-select{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.seasons-details{
+    /* background-color: orange ; */
+    height: 40px;
+    width: 100px;
+}
+
+.season-component
+{
+    display: flex;
+    flex-wrap: wrap;
+    /* background: orange; */
+    height: 87%;
+    overflow-y:scroll ;
+}
+
+.season-component::-webkit-scrollbar {
+    display: none;
+}
+
+.similar-like-div{
+    height:25% ;
+    /* overflow:hidden ; */
+    overflow-y: scroll;
+}
+
+.similar-like-div::-webkit-scrollbar {
+    display: none;
+}

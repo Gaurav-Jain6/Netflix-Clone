@@ -1,0 +1,57 @@
+.similar-tv{
+    border-top: 1px solid #2B2B2B ;
+    border-bottom: 1px solid #2B2B2B ;
+    height:131px ;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white ;       
+}
+
+.episode-number{
+    font-size : 1.5rem ;
+    height:100% ;
+    width:5% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#D2D2D2 ;
+}
+
+.per-episode-image{
+
+}
+
+.poster-image{
+    border-radius: 10px;
+    height:73px ;
+    width:130px ;
+}
+
+.episode-content{
+    height: 77%;
+    width: 75%;
+}
+
+.episode-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px 5px 15px ;
+}
+
+.episode-name{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.episode-duration{
+    font-size: 1.2rem;
+}
+
+.episode-content-overview{
+    color : #D2D2D2;
+    font-size:0.9rem ;
+    padding:5px 15px 5px 15px ;
+}

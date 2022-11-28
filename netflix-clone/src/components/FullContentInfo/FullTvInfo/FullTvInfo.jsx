@@ -3,7 +3,8 @@ import "./FullTvInfo.css" ;
 import { useLocation } from "react-router-dom";
 import { API_URL, API_KEY, API_IMAGE } from "../../../API/secrets";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import Similar from "./SimilarTv" ;
+import SeasonTv from "./SeasonTv" ;
+import SimilarTv from "./SimilarTv" ;
 
 const FullTvInfo = () => {
 
@@ -22,6 +23,7 @@ const FullTvInfo = () => {
     const[contentRating , setContentRatingMovieData] = useState("") ;
     const[ratingContext , setRatingContext] = useState("") ;    
     const[episodeTime , setTime] = useState("") ;
+    const[episodeData , setEpisodeData] = useState([]) ;
 
 
     useEffect(() => {
@@ -45,15 +47,17 @@ const FullTvInfo = () => {
                 // console.log(videoObject[0]) ;
             }
             
-        // // https://api.themoviedb.org/3/movie/{movie_id}/similar?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US&page=1
-        // // SIMILAR MOVIES
-        // const fetchData1 = async() => {
+        // https://api.themoviedb.org/3/tv/{tv_id}/similar?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US&page=1
+        // https://api.themoviedb.org/3/tv/76669?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US&append_to_response=recommendations
+        // SIMILAR MOVIES
+        const fetchData1 = async() => {
            
-        //     const data = await fetch(`${API_URL}/movie/${from.id}/similar?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US&page=1`) ;
-        //     let response = await data.json() ;
-        //     setSimilarMovieData(response.results) ;
-        //     // console.log(response.results) ;
-        // }
+            const data = await fetch(`${API_URL}/tv/${from.id}?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US&append_to_response=recommendations&page=1`)
+            // const data = await fetch(`${API_URL}/tv/${from.id}/similar?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US&page=1`) ;
+            let response = await data.json() ;
+            setSimilarMovieData(response.recommendations.results) ;
+            // console.log(response.recommendations.results) ;
+        }
         
         // TV GENRES 
         const fetchData2 = async() => {
@@ -252,12 +256,24 @@ const FullTvInfo = () => {
             setTime(episodeRunTime) ;
         }
 
+        // Episode Details
+        // https://api.themoviedb.org/3/tv/{tv_id}/season/{season_number}?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US
+        const fetchData6 = async() => {
+           
+            const data = await fetch(`${API_URL}/tv/${from.id}/season/1?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US`) ;
+            let response = await data.json() ;
+            // setCastMovieData(response) ;
+            // console.log(response.episodes) ;
+            setEpisodeData(response.episodes)
+        }
+
         fetchData() ;
-        // fetchData1() ;
+        fetchData1() ;
         fetchData2() ;
         fetchData3() ;
         fetchData4() ;
         fetchData5() ;
+        fetchData6() ;
     },[])
 
     let str = "" ;
@@ -280,7 +296,7 @@ const FullTvInfo = () => {
         val = minutes + "min" ;
     }
 
-    let count = 0 ;
+    let count = 1 ;
     
     return ( 
     <div className="content-body">
@@ -319,14 +335,34 @@ const FullTvInfo = () => {
                 </div>
             </div>
             <div className="more-like-this">
-                <h3 className='more-like-span'>Episodes</h3>
-                <div className="more-like-component">
-                    {/* {similarMovieData.map((val) => {
+                <div className="more-like-select">
+
+                    <h3 className='more-like-span'>Episodes</h3>
+                    <select name="genre" id="genre" className="seasons-details">
+                        <option>Genre</option>
+                    </select>
+                </div>
+                <div className="season-component">
+                    
+                    {episodeData.map((val) => {
                         // let count = 0 ;
                         // console.log(val) ;
-                        return <Similar key={val.id} index={count++} movies={val}/> ;
-                    })} ; */}
+                        return <SeasonTv key={val.id} index={count++} episodes={val}/> 
+                    })} 
                 </div>
+            </div>
+            <div className="similar-like-div">
+                {/* <div className="season-component"> */}
+                    <h3 className='more-like-span'>More Like This</h3>
+                    <div className="more-like-component">
+                        {similarMovieData.map((val) => {
+                            // let count = 0 ;
+                            // console.log(val) ;
+                            return <SimilarTv key={val.id} index={count++} tv={val}/> ;
+                        })} ;
+                    </div>
+                {/* </div> */}
+
             </div>
             <div className="about-movie-info">
                 <span className="about-span">About {from.original_name}</span>
