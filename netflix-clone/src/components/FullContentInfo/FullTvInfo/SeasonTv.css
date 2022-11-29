@@ -32,6 +32,11 @@
 .episode-content{
     height: 77%;
     width: 75%;
+    overflow-y:scroll ;
+}
+
+.episode-content::-webkit-scrollbar {
+    display: none;
 }
 
 .episode-header{

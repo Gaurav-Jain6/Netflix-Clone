@@ -5,12 +5,13 @@ import { API_URL, API_KEY, API_IMAGE } from "../../../API/secrets";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import SeasonTv from "./SeasonTv" ;
 import SimilarTv from "./SimilarTv" ;
+import { useNavigate } from 'react-router-dom';
 
-const FullTvInfo = () => {
+const FullTvInfo = (props) => {
 
     const location = useLocation();
     const { from } = location.state;
-    // console.log(from);
+    // console.log(from) ;
 
     const[vObject , setObject] = useState({}) ;
     const[similarMovieData , setSimilarMovieData] = useState([]) ;
@@ -25,6 +26,7 @@ const FullTvInfo = () => {
     const[episodeTime , setTime] = useState("") ;
     const[episodeData , setEpisodeData] = useState([]) ;
 
+   
 
     useEffect(() => {
         const fetchData = async() => {
@@ -259,7 +261,8 @@ const FullTvInfo = () => {
         // Episode Details
         // https://api.themoviedb.org/3/tv/{tv_id}/season/{season_number}?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US
         const fetchData6 = async() => {
-           
+            // const data = await fetch(`${API_URL}/tv/${from.id}/${props.SeasonNum}/1?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US`) ;
+            // const data = await fetch(`${API_URL}/tv/${from.id}/${currentSeason}/1?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US`) ;
             const data = await fetch(`${API_URL}/tv/${from.id}/season/1?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US`) ;
             let response = await data.json() ;
             // setCastMovieData(response) ;
@@ -276,9 +279,28 @@ const FullTvInfo = () => {
         fetchData6() ;
     },[])
 
+    let currentSeason = async(vals) =>
+    {   
+        let data = await fetch(`${API_URL}/tv/${from.id}/season/${vals}?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US`) ;
+        let response = await data.json() ;
+        // console.log(response) ;
+        console.log(vals + "answerss")
+        setEpisodeData(response.episodes) ;
+    }
+
+    // currentSeason(props.seasonNum) ;
+
     let str = "" ;
+    const navigate = useNavigate();
 
     let {last_air_date, vote_average, number_of_seasons} = from ;
+
+    let arr = [] ;
+    for(let i = 0 ; i < number_of_seasons ; i++)
+    {
+        arr[i] = i+1 ;
+    }
+    // console.log(arr) ;
 
     var hours = Math.floor(episodeTime / 60);          
     var minutes = episodeTime % 60;
@@ -297,6 +319,7 @@ const FullTvInfo = () => {
     }
 
     let count = 1 ;
+    let seasons = ""
     
     return ( 
     <div className="content-body">
@@ -338,31 +361,43 @@ const FullTvInfo = () => {
                 <div className="more-like-select">
 
                     <h3 className='more-like-span'>Episodes</h3>
-                    <select name="genre" id="genre" className="seasons-details">
-                        <option>Genre</option>
+                    <select name="genre" id="genre" className="seasons-details"
+                        onChange={(e)=>{
+                            // console.log(from) ;
+                            // navigate("/fullTvInfo", {
+                                // state: {
+                                //   from
+                                // }, 
+                                // currentSeason: e.target.selectedOptions[0].innerText.substring(7),
+                            //   })
+                            // console.log(e.target.selectedOptions[0].innerText.substring(7)) ;
+                            // props.cseason = e.target.selectedOptions[0].innerText.substring(7) ; 
+
+                            currentSeason(e.target.selectedOptions[0].innerText.substring(7))
+                            // props.setSeasonTvF(e.target.selectedOptions[0].innerText.substring(7)) 
+                        }}>
+                            {/* <option>Genre</option> */}
+                            {arr.map((val) => {
+                                return <option value={val}>Season {val}</option>
+                            })} ;
+                            
                     </select>
                 </div>
                 <div className="season-component">
                     
                     {episodeData.map((val) => {
-                        // let count = 0 ;
-                        // console.log(val) ;
-                        return <SeasonTv key={val.id} index={count++} episodes={val}/> 
+                        return <SeasonTv key={val.id} index={count++} episodes={val} season={seasons}/> 
                     })} 
                 </div>
             </div>
             <div className="similar-like-div">
-                {/* <div className="season-component"> */}
-                    <h3 className='more-like-span'>More Like This</h3>
-                    <div className="more-like-component">
-                        {similarMovieData.map((val) => {
-                            // let count = 0 ;
-                            // console.log(val) ;
-                            return <SimilarTv key={val.id} index={count++} tv={val}/> ;
-                        })} ;
-                    </div>
-                {/* </div> */}
+                <h3 className='more-like-span'>More Like This</h3>
+                <div className="more-like-component">
+                    {similarMovieData.map((val) => {
 
+                        return <SimilarTv key={val.id} index={count++} tv={val}/> ;
+                    })} ;
+                </div>
             </div>
             <div className="about-movie-info">
                 <span className="about-span">About {from.original_name}</span>

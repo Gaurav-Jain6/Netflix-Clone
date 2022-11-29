@@ -20,7 +20,7 @@ const SimilarTv = (props) => {
             const data = await fetch(`${API_URL}/tv/${props.tv.id}/content_ratings?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US`) ;
             let response = await data.json() ;
             // console.log(response.releases.countries) ;
-            console.log(response) ;
+            // console.log(response) ;
             
             let contentRatingObject = await response.results.filter((contentRatingObj) => {
                 // console.log(contentRatingObj) ;
@@ -33,7 +33,7 @@ const SimilarTv = (props) => {
             {
                 rating = contentRatingObject[0].rating ;
             }
-            console.log(rating.length) ;
+            // console.log(rating.length) ;
             if(rating.length == 0 || rating == "NR")
             {
                 rating = "U/A 13+"
