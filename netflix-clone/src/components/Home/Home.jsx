@@ -192,6 +192,8 @@ const Home = () => {
         setTvGenre(tvData) ;
     }
 
+    let arr1 = ["829280", "436270", "1013860", "829799"] // Homepage Featured
+    let val = arr1[Math.floor(Math.random() * arr1.length)] ;
     return ( 
 
         
@@ -241,7 +243,7 @@ const Home = () => {
                     <Routes>
                         <Route path="/" exact element= {<>  
             
-                        <Featured id="829280"></Featured>
+                        <Featured id={val}></Featured>
                         <List type="Horror" id="27"></List>
                         <List type="Crime" id="80"></List>
                         <List type="Action" id="28"></List>

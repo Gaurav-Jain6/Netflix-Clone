@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./FullMoviesInfo.css" ;
 import { useLocation } from "react-router-dom";
-import { API_URL, API_KEY, API_IMAGE } from "../../../API/secrets";
+import { API_URL, API_KEY, IMAGE_URL } from "../../../API/secrets";
 // import {HashLink} from "react-router-hash-link"
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import Similar from "./Similar" ;
@@ -176,7 +176,7 @@ const FullMoviesInfo = () => {
             let ratingContext = "" ;
             const data = await fetch(`${API_URL}/movie/${from.id}?api_key=b7c5d92115fce280b185d643ac4d4dfb&append_to_response=releases`) ;
             let response = await data.json() ;
-            // console.log(response.releases.countries) ;
+            console.log(response.releases.countries) ;
 
             let contentRatingObject = await response.releases.countries.filter((contentRatingObj) => {
                 if (contentRatingObj.iso_3166_1 == "US" && contentRatingObj.certification != "") {
@@ -184,7 +184,13 @@ const FullMoviesInfo = () => {
                 }
                 return false;
             });
-            rating = contentRatingObject[0].certification ;
+            if(contentRatingObject.length > 0)
+            {
+                rating = contentRatingObject[0].certification ;
+            }
+            else{
+                rating = "" ;
+            }
             if(rating.length == 0 || rating == "NR" || rating == "PG")
             {
                 rating = "U/A 13+"
@@ -248,7 +254,10 @@ const FullMoviesInfo = () => {
     return ( 
     <div className="content-body">
        <div className="iframe-video">
-       <iframe className="iframe-video-class" src={`https://www.youtube.com/embed/${vObject.key}?autoplay=1&mute=1&loop=1&controls=0&vq=low&modestbranding=1`}></iframe>
+       {vObject != undefined ? (
+                <iframe className="iframe-video-class" src={`https://www.youtube.com/embed/${vObject.key}?autoplay=1&mute=1&loop=1&controls=0&vq=low&modestbranding=1`}></iframe>
+                ) : (<img className="iframe-video-class" src={IMAGE_URL + from.poster_path} alt="" />) }
+       {/* <iframe className="iframe-video-class" src={`https://www.youtube.com/embed/${vObject.key}?autoplay=1&mute=1&loop=1&controls=0&vq=low&modestbranding=1`}></iframe> */}
         </div>
         <div className="main-container">
 
@@ -280,7 +289,7 @@ const FullMoviesInfo = () => {
                     </div>
                 </div>
             </div>
-            <div className="more-like-this">
+            <div className="more-like-this-movie">
                 <h3 className='more-like-span'>More Like This</h3>
                 <div className="more-like-component">
                     {similarMovieData.map((val) => {

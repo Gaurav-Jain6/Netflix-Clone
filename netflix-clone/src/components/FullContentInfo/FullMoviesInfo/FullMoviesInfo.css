@@ -117,13 +117,13 @@
     font-weight: 500;
 }
 
-.more-like-this{
+.more-like-this-movie{
     overflow-x:hidden ;
     height: 50% ;
     background-color: #181818;
 }
 
-.more-like-this::-webkit-scrollbar {
+.more-like-this-movie::-webkit-scrollbar {
     display: none;
 }
 
@@ -182,5 +182,13 @@
 
 .general-info{
     color:white ;
+}
+
+.movieList-img-fullInfo{
+    border-bottom: 2px solid white;
+    border-radius: 10px 10px 0px 0px;
+    height: 100%;
+    width: 100%;
+    transition: 3s;
 }
 

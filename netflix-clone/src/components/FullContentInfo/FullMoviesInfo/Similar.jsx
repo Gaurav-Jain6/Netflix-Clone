@@ -26,7 +26,14 @@ const Similar = (props) => {
                 }
                 return false;
             });
-            rating = contentRatingObject[0].certification ;
+            if(contentRatingObject.length > 0)
+            {
+                rating = contentRatingObject[0].certification ;
+            }
+            else{
+                rating = "" ;
+            }
+            // rating = contentRatingObject[0].certification ;
             if(rating.length == 0 || rating == "NR")
             {
                 rating = "U/A 13+"

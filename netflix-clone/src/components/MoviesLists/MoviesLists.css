@@ -154,3 +154,11 @@
 
     color: rgb(255, 255, 255);
 }
+
+.movieList-img-hover{
+    border-bottom: 2px solid white;
+    border-radius: 10px 10px 0px 0px;
+    height:50% ;
+    width:100% ;
+    transition:3s ;
+}

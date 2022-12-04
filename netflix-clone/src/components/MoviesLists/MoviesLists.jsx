@@ -50,16 +50,13 @@ const MoviesLists = (props) => {
             setMovieData(response) ;
             for(let i = 0 ; i < response.genres.length && i < 3  ; i++)
             {
-                if(response.genres.length == 2 && i == 1)
+                if(i == response.genres.length - 1)
                 {
                     str += response.genres[i].name ;
-                    break ;
+                    console.log(str) ;
                 }
-                if(i == 2)
+                else
                 {
-                    str += response.genres[i].name ;
-                }
-                else{
                     str += response.genres[i].name + " / " ;
                 }
             }
@@ -105,13 +102,16 @@ const MoviesLists = (props) => {
             >
             <img src={poster} alt="" className="movieimg" />
 
-            {vObject != undefined && isHovered && (
+            { isHovered && (
                 <>
             <div className="movieHover"
             style={{ left: isHovered && props.index * 225 - 35 + props.index * 2.5 }}
             >
-            
+                {vObject != undefined ? (
                 <iframe className="video-class" src={`https://www.youtube.com/embed/${vObject.key}?autoplay=1&mute=1&loop=1&controls=0&vq=low&modestbranding=1`}></iframe>
+                ) : (<img className="movieList-img-hover" src={poster} alt="" />) }
+            
+                {/* <iframe className="video-class" src={`https://www.youtube.com/embed/${vObject.key}?autoplay=1&mute=1&loop=1&controls=0&vq=low&modestbranding=1`}></iframe> */}
                 <div className="itemInfo">
                     <div className="icons">
                         <div className="icon-play-like">

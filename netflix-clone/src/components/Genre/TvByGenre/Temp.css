@@ -35,7 +35,7 @@
     top : 685px ;
     cursor: pointer;
     height: 360px;
-    border-radius: 5px ;
+    border-radius: 10px 10px 0 0 ;
     width:300px ;
     transition: 2s ;
     animation:pop-in 1s;

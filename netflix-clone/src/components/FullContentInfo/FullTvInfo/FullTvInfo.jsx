@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./FullTvInfo.css" ;
 import { useLocation } from "react-router-dom";
-import { API_URL, API_KEY, API_IMAGE } from "../../../API/secrets";
+import { API_URL, API_KEY, IMAGE_URL } from "../../../API/secrets";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import SeasonTv from "./SeasonTv" ;
 import SimilarTv from "./SimilarTv" ;
@@ -11,7 +11,7 @@ const FullTvInfo = (props) => {
 
     const location = useLocation();
     const { from } = location.state;
-    // console.log(from) ;
+    console.log(from) ;
 
     const[vObject , setObject] = useState({}) ;
     const[similarMovieData , setSimilarMovieData] = useState([]) ;
@@ -199,7 +199,7 @@ const FullTvInfo = (props) => {
             let ratingContext = "" ;
             const data = await fetch(`${API_URL}/tv/${from.id}/content_ratings?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US`) ;
             let response = await data.json() ;
-            // console.log(response.releases.countries) ;
+            console.log(response.results) ;
             
             let contentRatingObject = await response.results.filter((contentRatingObj) => {
                 // console.log(contentRatingObj) ;
@@ -208,7 +208,13 @@ const FullTvInfo = (props) => {
                 }
                 return false;
             });
-            rating = contentRatingObject[0].rating ;
+            if(contentRatingObject.length > 0)
+            {
+                rating = contentRatingObject[0].rating ;
+            }
+            else{
+                rating = "" ;
+            }
             if(rating.length == 0 || rating == "NR")
             {
                 rating = "U/A 13+"
@@ -324,7 +330,10 @@ const FullTvInfo = (props) => {
     return ( 
     <div className="content-body">
        <div className="iframe-video">
-       <iframe className="iframe-video-class" src={`https://www.youtube.com/embed/${vObject.key}?autoplay=1&mute=1&loop=1&controls=0&vq=low&modestbranding=1`}></iframe>
+       {vObject != undefined ? (
+                <iframe className="iframe-video-class" src={`https://www.youtube.com/embed/${vObject.key}?autoplay=1&mute=1&loop=1&controls=0&vq=low&modestbranding=1`}></iframe>
+                ) : (<img className="iframe-video-class" src={IMAGE_URL + from.poster_path} alt="" />) }
+       {/* <iframe className="iframe-video-class" src={`https://www.youtube.com/embed/${vObject.key}?autoplay=1&mute=1&loop=1&controls=0&vq=low&modestbranding=1`}></iframe> */}
         </div>
         <div className="main-container">
 
@@ -363,20 +372,8 @@ const FullTvInfo = (props) => {
                     <h3 className='more-like-span'>Episodes</h3>
                     <select name="genre" id="genre" className="seasons-details"
                         onChange={(e)=>{
-                            // console.log(from) ;
-                            // navigate("/fullTvInfo", {
-                                // state: {
-                                //   from
-                                // }, 
-                                // currentSeason: e.target.selectedOptions[0].innerText.substring(7),
-                            //   })
-                            // console.log(e.target.selectedOptions[0].innerText.substring(7)) ;
-                            // props.cseason = e.target.selectedOptions[0].innerText.substring(7) ; 
-
                             currentSeason(e.target.selectedOptions[0].innerText.substring(7))
-                            // props.setSeasonTvF(e.target.selectedOptions[0].innerText.substring(7)) 
                         }}>
-                            {/* <option>Genre</option> */}
                             {arr.map((val) => {
                                 return <option value={val}>Season {val}</option>
                             })} ;
