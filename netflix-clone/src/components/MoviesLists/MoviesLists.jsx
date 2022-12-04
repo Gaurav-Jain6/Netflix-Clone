@@ -50,10 +50,10 @@ const MoviesLists = (props) => {
             setMovieData(response) ;
             for(let i = 0 ; i < response.genres.length && i < 3  ; i++)
             {
-                if(i == response.genres.length - 1)
+                if(i == response.genres.length - 1 || i == 2)
                 {
                     str += response.genres[i].name ;
-                    console.log(str) ;
+                    // console.log(str) ;
                 }
                 else
                 {

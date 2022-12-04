@@ -10,7 +10,7 @@ import "./Temp.css" ;
 import { Link } from 'react-router-dom';
 
 const Temp = (props) => {
-    // console.log(props.movie) ;
+    console.log(props.movie) ;
     const[tvObject , setTvObject] = useState({}) ;
 
     useEffect(()=>{
@@ -66,7 +66,7 @@ const Temp = (props) => {
             setMovieData(response) ;
             for(let i = 0 ; i < response.genres.length && i < 3  ; i++)
             {
-                if(i == response.genres.length - 1)
+                if(i == response.genres.length - 1 || i == 2)
                 {
                     str += response.genres[i].name ;
                     // console.log(str) ;
@@ -125,7 +125,7 @@ const Temp = (props) => {
             {isHovered && (
         <>
         <div className="movieHover"
-        style={{ left: isHovered && props.index * 225 + 5 + props.index * 130 , top: isHovered && props.top * 225 + 650 + props.top * 72}}
+        style={{ left: isHovered && props.index * 240 + 5 + props.index * 160 , top: isHovered && props.top * 225 + 630 + props.top * 85}}
         >
             {vObject != undefined ? (
                 <iframe className="video-class" src={`https://www.youtube.com/embed/${vObject.key}?autoplay=1&mute=1&loop=1&controls=0&vq=low&modestbranding=1`}></iframe>
@@ -141,7 +141,7 @@ const Temp = (props) => {
                     </div>
                     <div className="icon-add-to-list">
                             {/* <Add></Add> */}
-                            <Link to="/fullTvInfo" state={{from: props.movie}}>
+                            <Link to="/fullTvInfo" state={{from: movieData}}>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="Hawkins-Icon Hawkins-Icon-Standard">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M19.293 7.29297L12.0001 14.5859L4.70718 7.29297L3.29297 8.70718L11.293 16.7072C11.4805 16.8947 11.7349 17.0001 12.0001 17.0001C12.2653 17.0001 12.5196 16.8947 12.7072 16.7072L20.7072 8.70718L19.293 7.29297Z" fill="currentColor">
                                 </path>
