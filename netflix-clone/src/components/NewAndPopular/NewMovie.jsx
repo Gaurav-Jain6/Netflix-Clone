@@ -38,7 +38,7 @@ const New = (props) => {
         })
         .then((response) => {
             
-            console.log(response.results) ;
+            // console.log(response.results) ;
             setdata(response.results) ;
         })
         // console.log(movieObject) ;

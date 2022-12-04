@@ -11,7 +11,7 @@ const FullTvInfo = (props) => {
 
     const location = useLocation();
     const { from } = location.state;
-    console.log(from) ;
+    // console.log(from) ;
 
     const[vObject , setObject] = useState({}) ;
     const[similarMovieData , setSimilarMovieData] = useState([]) ;
@@ -199,7 +199,7 @@ const FullTvInfo = (props) => {
             let ratingContext = "" ;
             const data = await fetch(`${API_URL}/tv/${from.id}/content_ratings?api_key=b7c5d92115fce280b185d643ac4d4dfb&language=en-US`) ;
             let response = await data.json() ;
-            console.log(response.results) ;
+            // console.log(response.results) ;
             
             let contentRatingObject = await response.results.filter((contentRatingObj) => {
                 // console.log(contentRatingObj) ;

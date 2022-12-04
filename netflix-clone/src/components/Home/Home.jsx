@@ -192,8 +192,30 @@ const Home = () => {
         setTvGenre(tvData) ;
     }
 
-    let arr1 = ["829280", "436270", "1013860", "829799"] // Homepage Featured
-    let val = arr1[Math.floor(Math.random() * arr1.length)] ;
+    // let homepageFeatured = ["829280", "436270", "1013860", "829799" , "988233", "505642", "830784", "338958", "724495", "948276"] // Homepage Featured Done
+    // let homepageFeaturedval = homepageFeatured[Math.floor(Math.random() * homepageFeatured.length)] ;
+
+    // let moviesFeatured = ["829280", "436270", "1013860", "829799" , "988233", "505642", "830784", "338958", "724495", "948276"] // Movies Featured Done Same as Homepage
+    // let moviesFeaturedFeaturedval = moviesFeatured[Math.floor(Math.random() * moviesFeatured.length)] ;
+
+    // let tvFeatured = ["94997", "120089", "90462", "90669" , "65334", "76669", "119051", "83867", "44217", "73586"] // Tv Featured Done 
+    // let tvFeaturedval = tvFeatured[Math.floor(Math.random() * tvFeatured.length)] ;
+
+    // let nAndPFeatured = ["882598", "1396", "724495", "4682" , "814338", "111837", "774752", "436270", "119051", "7660"] // New and Popular Featured Done
+    // let nAndPFeaturedval = nAndPFeatured[Math.floor(Math.random() * nAndPFeatured.length)] ;
+
+    let homepageFeatured = ["829280movie", "436270movie", "1013860movie", "829799movie" , "988233movie", "505642movie", "830784movie", "338958movie", "724495movie", "948276movie"] // Homepage Featured Done
+    let homepageFeaturedval = homepageFeatured[Math.floor(Math.random() * homepageFeatured.length)] ;
+
+    let moviesFeatured = ["829280movie", "436270movie", "1013860movie", "829799movie" , "988233movie", "505642movie", "830784movie", "338958movie", "724495movie", "948276movie"] // Movies Featured Done Same as Homepage
+    let moviesFeaturedFeaturedval = moviesFeatured[Math.floor(Math.random() * moviesFeatured.length)] ;
+
+    let tvFeatured = ["94997tv", "120089tv", "90462tv", "90669tv" , "65334tv", "76669tv", "119051tv", "83867tv", "44217tv", "73586tv"] // Tv Featured Done 
+    let tvFeaturedval = tvFeatured[Math.floor(Math.random() * tvFeatured.length)] ;
+
+    let nAndPFeatured = ["882598movie", "1396tv", "724495movie", "4682tv" , "814338movie", "111837tv", "774752movie", "436270movie", "119051tv", "76600movie"] // New and Popular Featured Done
+    let nAndPFeaturedval = nAndPFeatured[Math.floor(Math.random() * nAndPFeatured.length)] ;
+
     return ( 
 
         
@@ -207,7 +229,7 @@ const Home = () => {
                 <Routes>
                     <Route path="/TvShows" exact element=
                     {<>
-                        <Featured id="829280" setTvGenre={setTvsGenre} addGenres ="true" type="Series"></Featured>
+                        <Featured id={tvFeaturedval} setTvGenre={setTvsGenre} addGenres ="true" type="Series" media_type="tv"></Featured>
                         {tvObject.map((val) => {
                             // let count = 0 ;
                             return <TvList key={val.id} id={val.id} type={val.name}/> })
@@ -224,13 +246,6 @@ const Home = () => {
                         { movieData.length ? (
                         <React.Fragment>
                             <MoviesByName urls={urls} movies={movieData} pages={pages} name={currentMovie}></MoviesByName>
-                            {/* <Pagination
-                                pages={this.state.pages}
-                                currPage={this.state.currPage}
-                                nextPage={this.nextPage}
-                                previousPage={this.previousPage}
-                                setPage={this.setPage}
-                            ></Pagination> */}
                         </React.Fragment>
                         ) : (
                         <h1>Oops ! No Movies Or Shows Found !!!</h1>
@@ -243,7 +258,7 @@ const Home = () => {
                     <Routes>
                         <Route path="/" exact element= {<>  
             
-                        <Featured id={val}></Featured>
+                        <Featured id={homepageFeaturedval} media_type="movie"></Featured>
                         <List type="Horror" id="27"></List>
                         <List type="Crime" id="80"></List>
                         <List type="Action" id="28"></List>
@@ -261,7 +276,7 @@ const Home = () => {
                 <Routes>
                     <Route path="/genre" exact element={
                         <>
-                            <Featured id="829280"></Featured>
+                            <Featured id={homepageFeaturedval} ></Featured>
                             <MoviesByGenre urls={urlmg} type={typeGenre} movies={moviesGenreObject} pages={pages} ></MoviesByGenre>
                         </>
                     }>
@@ -272,7 +287,7 @@ const Home = () => {
                 <Routes>
                     <Route path="/genreTv" exact element={
                         <>
-                            <Featured id="829280"></Featured>
+                            <Featured id={tvFeaturedval}></Featured>
                             <TvByGenre urls={urltg} type={tvTypeGenre} tv={tvGenreObject} pages={pages} ></TvByGenre>
                         </>
                     }>
@@ -284,7 +299,7 @@ const Home = () => {
                 <Routes>
                     <Route path="/Movies" exact element=
                         {<>
-                            <Featured id="829280" setMovieGenre={setMoviesGenre} addGenres ="true" type="Movies"></Featured>
+                            <Featured id={homepageFeaturedval} setMovieGenre={setMoviesGenre} addGenres ="true" type="Movies" media_type="movie"></Featured>
                            { moviesObject.map((val) => {
                             // let count = 0 ;
                             return <List key={val.id} id={val.id} type={val.name}/> })}
@@ -297,7 +312,7 @@ const Home = () => {
                 <Routes>
                     <Route path="/NewAndPopular" exact element={<>
 
-                        <Featured id="829280"></Featured>
+                        <Featured id={nAndPFeaturedval}></Featured>
                         <NewMovie type="movie" duration="" showType="Now Playing" url="/movie/now_playing"></NewMovie>  
                         <NewTv type="tv" duration="" showType="Top Rated" url="/tv/top_rated"></NewTv>  
                         <NewMovie type="movie" duration="" showType="Popular" url="/movie/popular"></NewMovie>
