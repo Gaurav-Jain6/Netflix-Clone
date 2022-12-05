@@ -146,10 +146,24 @@ const Featured = (props) => {
                         <PlayArrow />
                         <span>Play</span>
                     </button>
-                    <button className="more">
-                        <InfoOutlined />
-                        <span>More Info</span>
-                    </button>
+
+                    {props.id.replace(/[^a-zA-Z]/g,"") == "tv" ? 
+                        <Link to="/fullTvInfo" state={{from: movieObject}}  style={{ textDecoration: 'none' }}>
+                            <button className="more">
+                                <InfoOutlined />
+                                <span className='more-info-featured' >More Info</span>
+                            </button>
+                            {/* <img src={posterPath} alt="" /> */}
+                        </Link>
+                        : 
+                        <Link to="/fullMovieInfo" state={{from: movieObject}}  style={{ textDecoration: 'none' }}>
+                            <button className="more">
+                                <InfoOutlined />
+                                <span className='more-info-featured'>More Info</span>
+                            </button>
+                            {/* <img src={posterPath} alt="" /> */}
+                        </Link>
+                    }
                 </div>
             </div>
         </div>

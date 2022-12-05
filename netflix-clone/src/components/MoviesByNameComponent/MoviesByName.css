@@ -3,8 +3,8 @@
     display: flex ;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    gap:139px ;
+    gap:96px ;
     padding: 20px ;
     padding-top: 85px;
-    padding-bottom: 75px;
+    /* padding-bottom: 75px; */
 }

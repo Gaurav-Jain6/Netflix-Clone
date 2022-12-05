@@ -35,7 +35,7 @@ const MoviesByGenre = (props) => {
     return ( 
         <div>
             <h1 className="heading">{props.type} Movies</h1>
-            <div className='movies'>
+            <div className='movies-movie-genre'>
                 {/* <h1>Hello</h1> */}
                 {props.movies.map((movieObject) => {
                     // console.log(movieObject.id) ;
