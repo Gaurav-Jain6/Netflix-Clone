@@ -59,7 +59,7 @@ const Featured = (props) => {
         })
         .then((response) => {
             
-            console.log(response) ;
+            // console.log(response) ;
             setData(response) ;
         })
         
@@ -135,7 +135,7 @@ const Featured = (props) => {
             }
             {/* <img src={poster} alt="" /> */}
             {/* <YouTube className="video-class" videoId={videoObje.key} opts={opts}></YouTube> */}
-            <iframe className="video-class" id="fileUploadIframe" src={`https://www.youtube.com/embed/${videoObje.key}?autoplay=1&mute=1&loop=1&controls=0&vq=1080hd&modestbranding=1`}  style={{ width: '100%', height:'100%' , left:'0'}}></iframe>
+            {/* <iframe className="video-class" id="fileUploadIframe" src={`https://www.youtube.com/embed/${videoObje.key}?autoplay=1&mute=1&loop=1&controls=0&vq=1080hd&modestbranding=1`}  style={{ width: '100%', height:'100%' , left:'0'}}></iframe> */}
             <div className="info">
                 <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABUZdeG1DrMstq-YKHZ-dA-cx2uQN_YbCYx7RABDk0y7F8ZK6nzgCz4bp5qJVgMizPbVpIvXrd4xMBQAuNe0xmuW2WjoeGMDn1cFO.webp?r=df1" alt="" className="img-info" />
                 <span className="desc">

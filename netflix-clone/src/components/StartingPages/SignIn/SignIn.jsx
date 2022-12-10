@@ -121,7 +121,7 @@ const SignIn = () => {
                             <label>Email or phone number</label>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="password" value={password} onClick={handleClick} 
+                            <input type="password" id="password" value={password} onClick={handleClick} 
                             onChange={handleChangePass}
                             // onChange = {(e)=> setPassword(e.target.value) }
                             />
